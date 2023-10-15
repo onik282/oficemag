@@ -1,0 +1,15 @@
+---
+- hosts: oficemag
+  become:
+    true
+  become_method:
+    su
+  become_user:
+    root
+  remote_user:
+    root
+  tasks:
+    - name: update php5.6 -> 7.2
+      shell: |
+             apt install -y php7.2
+             systemctl restart apache2
